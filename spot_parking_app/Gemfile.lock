@@ -119,7 +119,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  pg
+  pg (= 0.18.1)
   rails (= 4.2.0)
   spring
   web-console (~> 2.0)
