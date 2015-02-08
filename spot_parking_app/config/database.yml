@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: ati_proyectdb
+  user: cyk
+  password: pr0j2ctATI2
+  host: 127.0.0.1
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: ati_proyectdb
+  user: cyk
+  password: pr0j2ctATI2
+  host: 127.0.0.1
+  port: 5432
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: ati_proyectdb
+  user: cyk
+  password: pr0j2ctATI2
+  host: 127.0.0.1
+  port: 5432
