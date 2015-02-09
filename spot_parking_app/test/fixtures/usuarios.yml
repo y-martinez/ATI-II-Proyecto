@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id: 1
   email: MyString
   name: MyString
   password: MyString
   date_creation: 2015-02-08
+  time_of_reservation: 2015-02-08 01:52:56
+  type: MyString
 
 two:
-  id: 1
   email: MyString
   name: MyString
   password: MyString
   date_creation: 2015-02-08
+  time_of_reservation: 2015-02-08 01:52:56
+  type: Mystring

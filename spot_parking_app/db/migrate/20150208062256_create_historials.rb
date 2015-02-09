@@ -1,8 +1,6 @@
 class CreateHistorials < ActiveRecord::Migration
   def change
     create_table :historials do |t|
-      t.interger :id
-      t.integer :user_id
       t.timestamp :enter_time
       t.timestamp :exit_time
       t.float :payment
