@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'user/home'
+
   root 'application#index'
+  resources :user do
+    get 'home', to: 'user#home', on: :collection
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
