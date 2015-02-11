@@ -20,4 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+	copy: "SpotParking 2015. All Rights Reserved"
+	root:
+    	form:
+      		title: "Please sign in"
+      		user_name: "Username: "
+      		password: "Password: "
+      		email: "Email"
+      		btn_continue: "Sign in"
+      	home:
+      		welcome: "Welcome to Spot Parking"
+      		copy: "SpotParking 2015. All Rights Reserved"
