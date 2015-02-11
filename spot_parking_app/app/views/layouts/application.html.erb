@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SpotParkingApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>RubySource User Auth</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+	<div class="Main_Header">
+		<h1>Ruby Source</h1>
+		<%unless session[:usuario_id]%>
+			<ul class="nav">
+				<li><%= link_to :Signup , :signup_usuarios, class: "nav_links"%></li>|
+				<li><%= link_to :Login , :usuarios , class: "nav_links"%></li>	
+			</ul>
+		<%else%>
+			<ul class="nav">
+				<li><%= link_to :Home , :usuarios, class: "nav_links" %> |</li>
+				<li><%= link_to :Profile , :profile_sessions, class: "nav_links" %> |</li>
+				<li><%= link_to :Setting , :setting_sessions, class: "nav_links" %> |</li>
+				<li><%= link_to :Logout , :logout_sessions, class: "nav_links" %></li>	
+			</ul>
+		<%end%>
+	</div>
+	<% if flash[:color]== "valid" %>
+		<div class="valid_notice">
+			<p><%= flash[:notice]%></p>
+		</div>
+	<% elsif flash[:color]== "invalid"%>
+		<div class="invalid_notice">
+			<p><%=flash[:notice]%></p>
+		</div>
+	<%else%>
+		<div class="notice">
+			<p><%=flash[:notice]%></p>
+		</div>
+	<%end%>
 <%= yield %>
 
 </body>

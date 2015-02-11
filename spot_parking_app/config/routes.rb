@@ -1,4 +1,24 @@
 Rails.application.routes.draw do
+
+  root :to => 'sessions#login'
+  resources :usuarios do
+    get 'signup', to: 'usuarios#new', on: :collection
+    get 'index', to: 'sessions#login', on: :collection
+    get '/', to: 'sessions#login', on: :collection
+  end
+
+  resources :sessions, only: [] do
+
+    post 'login_attempt', on: :collection
+    get 'home', on: :collection
+    get 'logout', on: :collection
+    get 'profile', on: :collection
+    get 'setting', on: :collection
+  end
+  
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
