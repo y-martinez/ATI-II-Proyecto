@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'user#index'
   resources :user do
     get 'home', to: 'user#home', on: :collection
+    get 'form', to: 'user#create', on: :collection
+    post '/', to: 'user#create', on: :collection
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

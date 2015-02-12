@@ -11,20 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208062256) do
+ActiveRecord::Schema.define(version: 20150212191428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "estacionamientos", force: :cascade do |t|
+  create_table "floors", force: :cascade do |t|
     t.integer  "number_posts"
-    t.integer  "number_floors"
-    t.float    "price"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  create_table "historials", force: :cascade do |t|
+  create_table "parking", force: :cascade do |t|
+    t.float    "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "location"
+  end
+
+  create_table "records", force: :cascade do |t|
     t.datetime "enter_time"
     t.datetime "exit_time"
     t.float    "payment"
@@ -32,12 +37,19 @@ ActiveRecord::Schema.define(version: 20150208062256) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "sessions", force: :cascade do |t|
+    t.string   "token"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
     t.string   "password"
     t.date     "date_creation"
-    t.string   "type"
+    t.string   "type_of_user"
     t.datetime "time_of_reservation"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
