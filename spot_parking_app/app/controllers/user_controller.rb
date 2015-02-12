@@ -1,5 +1,5 @@
 class UserController < ApplicationController
- before_action :has_token, except: :create
+ #before_action :has_token, except: :create
  def home
  end
  def index
