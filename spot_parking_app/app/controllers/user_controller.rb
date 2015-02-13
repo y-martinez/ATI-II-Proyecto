@@ -3,7 +3,7 @@ class UserController < ApplicationController
  def home
  end
  def index
-  session[:usuario_id] = "hola"
+  
  end
  def create
   @user = User.where(email: params[:user][:email]).take rescue user = nil

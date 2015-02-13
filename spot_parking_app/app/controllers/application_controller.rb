@@ -12,12 +12,14 @@ class ApplicationController < ActionController::Base
   end
 
   def auth_user
-   if session[:usuario_id]
+    session_id = session[:user_id]
+   if session_id
       # set current user object to @current_user object variable
-     @current_user = User.where(:id session[:usuario_id])
+
+     @current_user = User.where(email: session_id).take
      return true 
-    else
-      redirect_to(:controller => 'user', :action => ' ')
+   else
+    #redirect_to(:controller => 'user', :action => ' ')
     return false
    end
   end

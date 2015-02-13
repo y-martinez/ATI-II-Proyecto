@@ -10,8 +10,12 @@
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 		    <ul class="nav navbar-nav">
-		     	<li><%= link_to "Spot Parking", root_path ,class:'navbar-btn navbar-brand'%></li>
-			    <%unless session[:usuario_id]%>
+		    	<li>
+		    		<img width="48px" height="48px"src="/assets/icon.png" class="img-responsive navbar navbar-btn"><
+		    	</li>
+		     	<li>
+		     	<%= link_to "Spot Parking", root_path ,class:'navbar-btn navbar-brand'%> /li>
+			    <%unless session[:user_id]%>
 				    <li><%= link_to "Login", {controller: "user"},action:"home" ,class:'navbar-btn'%>
 				    </li> <!--Traducir-->
 				    <li><%= link_to "Sing in", {controller: "user"}, action: "create" ,class:'navbar-btn'%>
