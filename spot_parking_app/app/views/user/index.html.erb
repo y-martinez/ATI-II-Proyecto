@@ -1,47 +1,41 @@
-<% @page_title = "Spot Parking | Index" -%>
+ <%unless flash[:singin]%>
+ 	<% @page_title = "Spot Parking | Sing In" %>
+ <%else%>
+ 	<% @page_title = "Spot Parking | Login" %>
+ <%end%>
 <main>
-	<div class="page-wrap container">
-		<div class="row">
-		  <div>
-		  	<br><br>
-			<div class="jumbotron">
-			  <h1>Book comfortably from your home with Parking Spot!</h1>
-			  <p>Application created thinking of you and help you avoid wasting time in a busy city...</p>
-			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-			</div>
-		  </div>
-		</div>
-		<div class="row">
-		  <div class="col-sm-3 col-md-2"></div>
-	      <div class="col-sm-6 col-md-4">
-	        <div class="thumbnail">
-	          <img data-src="holder.js/100%x200" alt="100%x200" src="#">
-	          <div class="caption">
-	            <h3>Save Time</h3>
-	            <p>The average driver spends 15 minutes or over looking for a parking spot. Using Spot Parking is fast and easy, so you get those time minutes back...</p>
-	          </div>
-	        </div>
-	      </div>
-	       <div class="col-sm-6 col-md-4">
-	        <div class="thumbnail">
-	          <img data-src="holder.js/100%x200" alt="100%x200" src="#">
-	          <div class="caption">
-	            <h3>Be Happy</h3>
-	            <p>We do everything we can to keep you happy before, during, and after your car is parked. And if you need help or something goes wrong, we have a team ready to assist.</p>
-	          </div>
-	        </div>
-	       </div>
-		   <div class="col-sm-3 col-md-2"></div>
-	       <center>
-	       	<a class="btn btn-primary btn-lg" href="#" role="button">Sounds Good, Let's Do It</a>
-	       	<!--<video class="video-background" loop="" preload="none">
-                <source src="../../../images/parking_lot.mp4" type="video/mp4">
-                <source src="/static/main/video/homepage-spotlight-bg.33dbd935791b.ogv" type="video/ogg">
-                <source src="/static/main/video/homepage-spotlight-bg.66412621c05e.webm" type="video/webm">
-                <img alt="SpotHero" src="/static/main/img/blank.4c02545f93b7.gif">>
-            </video>-->
-	       </center>
-	       <br><br>
-	    </div>
-	</div>
+
+  <div class="page-wrap container">
+ 	<%= form_for :user, :url => {:controller => 'user', :action => 'create'}, :html => {:class => "col-md-offset-3 col-sm-offset-2 col-sm-5 col-md-6 form-horizontal center"} do |f| %>
+ 	<center><h2 class="titles">Registration</h2></center>
+      <div class="form-group">
+        <%= f.label :name, "Name:", class: "control-label" %>
+        <div>
+          <%= f.text_field :name, :required => true, placeholder:'Enter your Name' ,class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "Email:", class: "control-label" %>
+        <div>
+          <%= f.email_field :email,:required => true, placeholder:'Enter your email',class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "Password:", class: "control-label" %>
+        <div>
+          <%= f.password_field :password,:required => true, placeholder:'Enter your Password',pattern:'([.\wA-Za-z]){6,}',class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :con_password, "Confirmation Password:", class: "control-label" %>
+        <div>
+          <%= f.password_field :con_password,:required => true, placeholder:'Enter your Confirmation Password',class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+      	<%= f.submit "Submit", class: "btn btn-lg btn-default btn-primary" %>
+      </div>
+      <br><br>
+    <% end %>
 </main>

@@ -11,17 +11,23 @@
 		  <div class="container-fluid">
 		    <ul class="nav navbar-nav">
 		     	<li><%= link_to "Spot Parking", root_path ,class:'navbar-btn navbar-brand'%></li>
-		    	<li class="navbar-btn dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a> <!--Traducir-->
-		          <ul class="dropdown-menu" role="menu">
-		            <li><a href="#">My Reservations</a></li> <!--Traducir-->
-		            <li><a href="#">Account Settings</a></li> <!--Traducir-->
-		          </ul>
-		        </li>
-			    <li><%= link_to "Login", root_path ,class:'navbar-btn'%>
-			    </li> <!--Traducir-->
-			    <li><%= link_to "Sing in", root_path ,class:'navbar-btn'%>
-			    </li> <!--Traducir-->
+			    <%unless session[:usuario_id]%>
+				    <li><%= link_to "Login", {controller: "user"},action:"home" ,class:'navbar-btn'%>
+				    </li> <!--Traducir-->
+				    <li><%= link_to "Sing in", {controller: "user"}, action: "create" ,class:'navbar-btn'%>
+				    </li> <!--Traducir-->
+				<%else%>
+			    	<li class="navbar-btn dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a> <!--Traducir-->
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="#">My Reservations</a></li> <!--Traducir-->
+			            <li><a href="#">Account Settings</a></li> <!--Traducir-->
+			          </ul>
+			        </li>
+			        <li>
+			        	<a href="#" class="navbar-btn">Logout</a>
+			        </li>
+				<%end%>
 		      </ul>
 		  </div>
 		</nav>

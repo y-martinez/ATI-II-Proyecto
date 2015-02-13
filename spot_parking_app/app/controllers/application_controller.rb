@@ -11,14 +11,14 @@ class ApplicationController < ActionController::Base
    end
   end
 
-  def has_token
-   #token = request.headers["token"]
-   #has_session = Session.where(token: token).first rescue has_session = nil
-   #if has_session then
-   	#@user = has_session.user
-    #return true
-   #end
-   #render json: {message: "INVALID_TOKEN"}, status: :forbidden
-   #return false
+  def auth_user
+   if session[:usuario_id]
+      # set current user object to @current_user object variable
+     @current_user = User.where(:id session[:usuario_id])
+     return true 
+    else
+      redirect_to(:controller => 'user', :action => ' ')
+    return false
+   end
   end
 end

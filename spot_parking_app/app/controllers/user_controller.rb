@@ -1,19 +1,19 @@
 class UserController < ApplicationController
- #before_action :has_token, except: :create
+ before_action :auth_user, except: :create
  def home
  end
  def index
+  session[:usuario_id] = "hola"
  end
  def create
-  user = User.where(email: params[:email]).first rescue usuario = nil
-  if user then
+  @user = User.where(email: params[:user][:email]).take rescue user = nil
+  if @user
    flash[:message] = "Email already used"
-   #redirect_to controller: :user, action: :formulario
-   #return 
+
   else
-   @user = User.new(name: params[:name],password: [:password], type_of_user: 'User')
-   @user.email = params[:email]
-   #@user.date_creation = Time.now
+   @user = User.new(name: params[:user][:name],password: params[:user][:password], type_of_user: 'User')
+   @user.email = params[:user][:email]
+   @user.date_creation = Time.now
    @user.time_of_reservation = nil
    if @user.save then
     flash[:message] = "User Created"

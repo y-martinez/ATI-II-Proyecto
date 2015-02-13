@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
-  root 'user#index'
+  root 'home#index'
   resources :user do
-    get 'home', to: 'user#home', on: :collection
-    get 'form', to: 'user#create', on: :collection
-    post '/', to: 'user#create', on: :collection
+    get 'login', to: 'user#home', on: :collection
+    post 'singin', to: 'user#create', on: :collection
+    get '/', to: 'user#index', on: :collection
   end
+
+  resources :sessions do
+    post  
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
