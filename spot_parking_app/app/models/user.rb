@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :record
-	EMAIL_REGEX = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 	validates :name, :presence => true, :length => { :in => 3..20 }
 	validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
 	validates :password, :confirmation => true
