@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150212191428) do
   end
 
   create_table "records", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "enter_time"
     t.datetime "exit_time"
     t.float    "payment"

@@ -16,9 +16,9 @@
 		     	<li>
 		     	<%= link_to "Spot Parking", root_path ,class:'navbar-btn navbar-brand'%> /li>
 			    <%unless session[:user_id]%>
-				    <li><%= link_to "Login", {controller: "user"},action:"home" ,class:'navbar-btn'%>
+				    <li><%= link_to "Login", new_session_path ,class:'navbar-btn'%>
 				    </li> <!--Traducir-->
-				    <li><%= link_to "Sing in", {controller: "user"}, action: "create" ,class:'navbar-btn'%>
+				    <li><%= link_to "Sing in", new_user_path ,class:'navbar-btn'%>
 				    </li> <!--Traducir-->
 				<%else%>
 			    	<li class="navbar-btn dropdown">
