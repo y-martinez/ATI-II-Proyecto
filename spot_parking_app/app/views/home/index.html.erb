@@ -33,15 +33,25 @@
 	       </div>
 		   <div class="col-sm-3 col-md-2"></div>
 	       <center>
-	       	<a class="btn btn-primary btn-lg" href="#" role="button">Sounds Good, Let's Do It</a>
-	       	<!--<video class="video-background" loop="" preload="none">
-                <source src="../../../images/parking_lot.mp4" type="video/mp4">
-                <source src="/static/main/video/homepage-spotlight-bg.33dbd935791b.ogv" type="video/ogg">
-                <source src="/static/main/video/homepage-spotlight-bg.66412621c05e.webm" type="video/webm">
-                <img alt="SpotHero" src="/static/main/img/blank.4c02545f93b7.gif">>
-            </video>-->
-	       </center>
+	        <%= link_to "Sounds Good, Let's Do It", new_user_path ,class:'btn btn-primary btn-lg'%></center>
 	       <br><br>
+	       <%if flash[:message] == "User Created" %>
+				<div id="modalRegister" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="registerSucces" aria-hidden="true">
+				  <div class="modal-dialog modal-sm">
+				    <div class="modal-content">
+				      <div class="list-group-item-success modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title">User successfully registered</h4>
+				      </div>
+				      <div class="modal-body">
+				      	<p>Welcome to Spot Parking, beam been registered successfully ...</p>
+				      </div>
+				      <div class="modal-footer">
+        				<button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
+        			  </div>
+				  </div>
+				</div>
+	       <%end%>
 	    </div>
 	</div>
 </main>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	#before_action 
+	before_action :auth_user, except: :create
 	def index
 		
 	end
@@ -7,27 +7,29 @@ class UsersController < ApplicationController
 	def new
 		@user=User.new
 	end
-
 	def create
 		@user = User.where(email: params[:user][:email]).take rescue user = nil
 		if @user
-			flash[:message] = "Email already used"
-			render action: 'new'
+			flash[:error] = "Email already used" 
+			flash.keep
+			redirect_to :sign_in
 		else
-			puts user_params
-			@user = User.new(user_params)
-			@user.type_of_user = 'User'
-			@user.date_creation = Time.now
-			@user.time_of_reservation = nil
-			if @user.save then
-				flash[:message] = "User Created"
-				puts 'Error 1'
-				#redirect_to users_url Error al redireccionar
-				redirect_to root_path
+			if params[:user][:password] != params[:user][:confirmation_password]
+				flash[:error] = "Passwords not" 
+				redirect_to :sign_in
 			else
-				flash[:message] = "Error"
-				puts 'Error 2'
-				render action: 'new' 
+				@user = User.new(user_params)
+				@user.type_of_user = 'User'
+				@user.date_creation = Time.now
+				@user.time_of_reservation = nil
+				if @user.save then
+					flash[:message] = "User Created"
+					redirect_to :root
+				else
+					flash[:error] = "Error"
+					puts 'Error 2'
+					redirect_to :sign_in
+				end
 			end
 		end
 	end

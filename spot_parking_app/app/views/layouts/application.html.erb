@@ -2,8 +2,10 @@
 <html>
 <head>
   <title>SpotParkingApp</title>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
 </head>
 <body>
 <header class="navbar navbar-fixed-top " role="banner">
@@ -11,14 +13,14 @@
 		  <div class="container-fluid">
 		    <ul class="nav navbar-nav">
 		    	<li>
-		    		<img width="48px" height="48px"src="/assets/icon.png" class="img-responsive navbar navbar-btn"><
+		    		<img width="48px" height="48px"src="/assets/icon.png" class="img-responsive navbar navbar-btn">
 		    	</li>
 		     	<li>
 		     	<%= link_to "Spot Parking", root_path ,class:'navbar-btn navbar-brand'%> /li>
-			    <%unless session[:user_id]%>
-				    <li><%= link_to "Login", new_session_path ,class:'navbar-btn'%>
+			    <%unless session[:user_id]%> <!--Traducir-->
+					<li><%= link_to "Login", :login ,class:'navbar-btn'%>
 				    </li> <!--Traducir-->
-				    <li><%= link_to "Sing in", new_user_path ,class:'navbar-btn'%>
+				    <li><%= link_to "Sing in", :sign_in ,class:'navbar-btn'%>
 				    </li> <!--Traducir-->
 				<%else%>
 			    	<li class="navbar-btn dropdown">
@@ -29,7 +31,7 @@
 			          </ul>
 			        </li>
 			        <li>
-			        	<a href="#" class="navbar-btn">Logout</a>
+			        	<%= link_to "Logout", :logout_sessions ,class:'navbar-btn'%>
 			        </li>
 				<%end%>
 		      </ul>

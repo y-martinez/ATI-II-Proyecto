@@ -14,12 +14,11 @@ class ApplicationController < ActionController::Base
   def auth_user
     session_id = session[:user_id]
    if session_id
-      # set current user object to @current_user object variable
-
-     @current_user = User.where(email: session_id).take
+     @current_user = User.where(email: session_id.first).take
      return true 
    else
-    #redirect_to(:controller => 'user', :action => ' ')
+    flash[:message] = "Authentication Required"
+    #redirect_to(:controller => 'sessions', :action => 'new')
     return false
    end
   end
