@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
-
+  before_action :auth_user, :except => [:create , :new]
 	def new
-		puts "HOLA MUNDO 2"
 	end
 	
 	def create
@@ -14,11 +13,10 @@ class SessionsController < ApplicationController
     id = [email,token]
     if user
      session[:user_id] = id
-     puts id.first
      redirect_to root_path
     else
      	flash[:message] = "Error"
-     	#redirect_to controller: :inicio, action: :formulario
+     	redirect_to :home_users
     end
 	end
 

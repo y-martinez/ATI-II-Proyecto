@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-	before_action :auth_user, except: :create
+	before_action :auth_user, :except => [:create , :new]
 	def index
-		
+		puts "HOLA MUNDO"
 	end
 	
 	def new
@@ -27,7 +27,6 @@ class UsersController < ApplicationController
 					redirect_to :root
 				else
 					flash[:error] = "Error"
-					puts 'Error 2'
 					redirect_to :sign_in
 				end
 			end

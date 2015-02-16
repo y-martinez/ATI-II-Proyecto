@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     get 'logout' => 'sessions#destroy', on: :collection
   end
   resources :users  do  
-    get 'portal' => 'users#index',on: :collection
+    get 'home' => 'users#index',on: :collection
   end
 end

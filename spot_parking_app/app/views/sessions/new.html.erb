@@ -2,8 +2,15 @@
 <main>
   <br>
   <div class="page-wrap container">
- 	<%= form_for :user, :url => {:controller => 'sessions', :action => 'create'}, :html => {:class => "col-md-offset-3 col-sm-offset-2 col-sm-5 col-md-6 form-horizontal center"} do |f| %>
- 	<center><h2 class="titles">Login</h2></center>
+   	<%= form_for :user, :url => {:controller => 'sessions', :action => 'create'}, :html => {:class => "col-md-offset-3 col-sm-offset-2 col-sm-5 col-md-6 form-horizontal center"} do |f| %>
+   	  <center>
+        <h2 class="titles">Login</h2>
+        <%if flash[:error] == "Authentication Required"%>
+          <div class="list-group-item-danger">
+            <h3>Authentication Required</h3> <!--Traducir-->
+          </div>
+        <%end%>
+      </center>
       <div class="form-group">
         <%= f.label :email, "Email:", class: "control-label" %>
         <div>

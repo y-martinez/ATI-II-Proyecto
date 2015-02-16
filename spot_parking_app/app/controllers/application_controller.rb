@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
      @current_user = User.where(email: session_id.first).take
      return true 
    else
-    flash[:message] = "Authentication Required"
-    #redirect_to(:controller => 'sessions', :action => 'new')
+    flash[:error] = "Authentication Required"
+    redirect_to :login
     return false
    end
   end
