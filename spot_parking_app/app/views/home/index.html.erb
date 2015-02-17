@@ -2,56 +2,64 @@
 <main>
 	<div class="page-wrap container">
 		<div class="row">
-		  <div>
-		  	<br><br>
+			<br><br>
 			<div class="jumbotron">
 			  <h1>Book comfortably from your home with Parking Spot!</h1>
 			  <p>Application created thinking of you and help you avoid wasting time in a busy city...</p>
 			  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 			</div>
-		  </div>
 		</div>
+
 		<div class="row">
 		  <div class="col-sm-3 col-md-2"></div>
 	      <div class="col-sm-6 col-md-4">
 	        <div class="thumbnail">
-	          <img data-src="holder.js/100%x200" alt="100%x200" src="#">
+	          <!-- <img data-src="holder.js/100%x200" alt="100%x200" src="#"> -->
+	          <%= image_tag "save_time.jpeg", :alt => "Save time!" %>
 	          <div class="caption">
 	            <h3>Save Time</h3>
 	            <p>The average driver spends 15 minutes or over looking for a parking spot. Using Spot Parking is fast and easy, so you get those time minutes back...</p>
 	          </div>
 	        </div>
 	      </div>
-	       <div class="col-sm-6 col-md-4">
-	        <div class="thumbnail">
-	          <img data-src="holder.js/100%x200" alt="100%x200" src="#">
+	      <div class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+	          <!-- <img data-src="holder.js/100%x200" alt="100%x200" src="#"> -->
+	          <%= image_tag "happy-customers.jpg", :alt => "Be happy!", :title => "Happy Customers" %>
 	          <div class="caption">
 	            <h3>Be Happy</h3>
 	            <p>We do everything we can to keep you happy before, during, and after your car is parked. And if you need help or something goes wrong, we have a team ready to assist.</p>
 	          </div>
 	        </div>
-	       </div>
-		   <div class="col-sm-3 col-md-2"></div>
-	       <center>
-	        <%= link_to "Sounds Good, Let's Do It", new_user_path ,class:'btn btn-primary btn-lg'%></center>
-	       <br><br>
-	       <%if flash[:message] == "User Created" %>
-				<div id="modalRegister" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="registerSucces" aria-hidden="true">
-				  <div class="modal-dialog modal-sm">
-				    <div class="modal-content">
-				      <div class="list-group-item-success modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title">User successfully registered</h4>
-				      </div>
-				      <div class="modal-body">
-				      	<p>Welcome to Spot Parking, beam been registered successfully ...</p>
-				      </div>
-				      <div class="modal-footer">
-        				<button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
-        			  </div>
-				  </div>
-				</div>
-	       <%end%>
+	      </div>
+		  <div class="col-sm-3 col-md-2"></div>
+		</div>
+
+		<div class="row">
+		  <p class="text-center">
+			<%= link_to "Sounds Good, Let's Do It", 'sign_in', class:'btn btn-primary btn-lg'%>
+			<br><br>
+		  </p>
+		</div>
+
+		<div class="row">
+	      <%if flash[:message] == "User Created" %>
+			<div id="modalRegister" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="registerSucces" aria-hidden="true">
+			  <div class="modal-dialog modal-sm">
+			    <div class="modal-content">
+			      <div class="list-group-item-success modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">User successfully registered</h4>
+			      </div>
+			      <div class="modal-body">
+			      	<p>Welcome to Spot Parking, beam been registered successfully.</p>
+			      </div>
+			      <div class="modal-footer">
+        			<button type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
+        		  </div>
+			  </div>
+			</div>
+	      <%end%>
 	    </div>
 	</div>
 </main>
