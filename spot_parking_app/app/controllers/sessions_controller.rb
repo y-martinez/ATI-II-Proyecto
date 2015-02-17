@@ -13,18 +13,18 @@ class SessionsController < ApplicationController
     id = [email,token]
     if user
      session[:user_id] = id
-     redirect_to root_path
+     redirect_to :home_users
     else
      	flash[:message] = "Error"
-     	redirect_to :home_users
+     	render action: 'new'
     end
 	end
 
-  	def destroy
-      reset_session
-      redirect_to root_path  
-      return
-  	end
+  def destroy
+    reset_session
+    redirect_to root_path  
+    return
+  end
 
 	private
   	def reset_session

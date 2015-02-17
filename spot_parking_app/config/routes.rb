@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
   resources :users  do  
     get 'home' => 'users#index',on: :collection
+    
   end
 end

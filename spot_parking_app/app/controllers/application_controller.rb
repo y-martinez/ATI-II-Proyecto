@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     session_id = session[:user_id]
    if session_id
      @current_user = User.where(email: session_id.first).take
+     flash[:message] = "User Authenticated Correctly"
      return true 
    else
     flash[:error] = "Authentication Required"
