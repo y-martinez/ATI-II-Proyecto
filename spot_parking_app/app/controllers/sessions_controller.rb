@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
     pass = params[:user][:password]
 
     user = User.where(email: email, password: pass).take
+    # user = User.find_by(params[:email], params[:password])
+
     token = Digest::SHA1.hexdigest([Time.now, rand].join)
     id = [email,token]
     if user

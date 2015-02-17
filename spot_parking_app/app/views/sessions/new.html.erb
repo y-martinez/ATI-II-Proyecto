@@ -1,6 +1,5 @@
 <% @page_title = "Spot Parking | Login" %>
 <main>
-  <br>
   <div class="page-wrap container">
    	<%= form_for :user, :url => {:controller => 'sessions', :action => 'create'}, :html => {:class => "col-md-offset-3 col-sm-offset-2 col-sm-5 col-md-6 form-horizontal center"} do |f| %>
 
@@ -18,13 +17,13 @@
       <div class="form-group">
         <%= f.label :password, "Password:", class: "control-label" %>
         <%= f.password_field :password,:required => true, placeholder:'Enter your Password',pattern:'([.\wA-Za-z]){6,}',class: "form-control" %>
-        <p class="text-right"><a href="#">Forgot your password?</a></p>
+        <p class="text-right"><a href="#">Forgot your password?</a></p> <!--Traducir-->
       </div>
 
       <div class="form-group">
-
-      	<%= f.submit "Submit", class: "btn btn-lg btn-default btn-primary" %>
+        <%= f.submit "Submit", class: "btn btn-lg btn-default btn-primary" %>
       </div>
-      <br><br>
+
     <% end %>
+  </div>
 </main>
