@@ -7,18 +7,19 @@ class UsersController < ApplicationController
 	def new
 		@user=User.new
 	end
+
 	def create
-		@user = User.where(email: params[:user][:email]).take rescue user = nil
-		if @user
-			flash[:error] = "Email already used" 
-			flash.keep
-			redirect_to :sign_in
+		@user=User.new(user_params)
+		if params[:user][:password] != params[:user][:confirmation_password]
+			flash[:error] = "Passwords not"
+			render action: 'new'
 		else
-			if params[:user][:password] != params[:user][:confirmation_password]
-				flash[:error] = "Passwords not" 
-				redirect_to :sign_in
+			@located = User.where(email: params[:user][:email]).take rescue located = nil
+			if @located
+				flash[:error] = "Email already used" 
+				flash.keep
+				render action: 'new'
 			else
-				@user = User.new(user_params)
 				@user.type_of_user = 'User'
 				@user.date_creation = Time.now
 				@user.time_of_reservation = nil
@@ -27,7 +28,7 @@ class UsersController < ApplicationController
 					redirect_to :root
 				else
 					flash[:error] = "Error"
-					redirect_to :sign_in
+					render action: 'new'
 				end
 			end
 		end
