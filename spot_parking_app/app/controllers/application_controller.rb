@@ -15,8 +15,16 @@ class ApplicationController < ActionController::Base
     session_id = session[:user_id]
    if session_id
      @current_user = User.where(email: session_id.first).take
-     flash[:message] = "User Authenticated Correctly"
-     return true 
+     user_attemp=params[:user_id].to_s
+     user_session=@current_user.id.to_s
+      if user_attemp == user_session
+        flash[:message] = "User Authenticated Correctly"
+        return true
+      else
+        redirect_to :login
+        flash[:error] = "Wrong User"
+        return false
+      end
    else
     flash[:error] = "Authentication Required"
     redirect_to :login

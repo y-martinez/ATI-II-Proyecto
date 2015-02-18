@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :auth_user, :except => [:create , :new]
 	def new
 	end
 	
@@ -13,7 +12,7 @@ class SessionsController < ApplicationController
     id = [email,token]
     if user
      session[:user_id] = id
-     redirect_to :home_users
+     redirect_to user_home_path(user)
     else
      	flash[:message] = "Error"
      	render action: 'new'

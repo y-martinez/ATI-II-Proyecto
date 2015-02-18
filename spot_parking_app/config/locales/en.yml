@@ -19,15 +19,16 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en: 
+en:
+ copy: "SpotParking 2015. All Rights Reserved"
+ root:
+  form:
+  btn_continue: "Sign in"
+  email: Email
+  password: "Password: "
+  title: "Please sign in"
+  user_name: "Username: "
+ home:
   copy: "SpotParking 2015. All Rights Reserved"
-  root: 
-    form: 
-      btn_continue: "Sign in"
-      email: Email
-      password: "Password: "
-      title: "Please sign in"
-      user_name: "Username: "
-    home: 
-      copy: "SpotParking 2015. All Rights Reserved"
-      welcome: "Welcome to Spot Parking"
+  welcome: "Welcome to Spot Parking"
+ welcom: "welcome bro"

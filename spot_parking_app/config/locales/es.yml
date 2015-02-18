@@ -1,12 +1,13 @@
 es: 
-  copy: "SpotParking 2015. Todos los Derechos Reservados"
-  home: 
-    copy: "SpotParking 2015. Todos los Derechos Reservados"
-    root: 
-      form: 
-        btn_continue: Registrar
-        email: "Correo: "
-        password: "Contraseña: "
-        title: "Por favor registrarse"
-        user_name: "Usuario: "
-    welcome: "Bienvenido a Spot Parking"
+ copy: "SpotParking 2015. Todos los Derechos Reservados"
+ root:
+  form:
+   btn_continue: "Registrar"
+   email: "Correo: "
+   password: "Contraseña: "
+   title: "Por favor registrarse"
+   user_name: "Usuario: "
+   welcome: "Bienvenido a Spot Parking"
+  home:
+   copy: "SpotParking 2015. Todos los Derechos Reservados"
+ welcom: "Bienvenido menor"

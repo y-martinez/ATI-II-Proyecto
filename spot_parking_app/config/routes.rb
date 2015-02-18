@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
   root 'home#index'
+
+  resources :sessions, only: [:new, :create, :destroy]
   get 'login' => 'sessions#new'
   get 'sign_in' => 'users#new'
-
-  resources :sessions do  
-    get 'logout' => 'sessions#destroy', on: :collection
-  end
-  resources :users  do  
-    get 'home' => 'users#index',on: :collection
-    
+  get 'logout' => 'sessions#destroy'
+  resources :users do
+    get 'home' => 'users#index'
   end
 end
