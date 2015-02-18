@@ -6,7 +6,7 @@
       <h2 class="titles text-center">Login</h2>
       <%if flash[:error] == "Authentication Required" || flash[:error] == "Wrong User"%>
         <div class="text-center list-group-item-danger">
-          <h3>Authentication Required</h3> <!--Traducir-->
+          <h3><%=flash[:error]%></h3> <!--Traducir-->
         </div>
       <%end%>
 

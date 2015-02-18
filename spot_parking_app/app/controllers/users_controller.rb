@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	def create
 		@user=User.new(user_params)
 		if params[:user][:password] != params[:user][:confirmation_password]
-			flash[:error] = "Passwords not"
+			flash[:error] = "Passwords don't match"
 			render action: 'new'
 		else
 			@located = User.where(email: params[:user][:email]).take rescue located = nil

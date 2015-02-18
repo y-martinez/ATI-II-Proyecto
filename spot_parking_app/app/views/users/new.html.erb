@@ -3,17 +3,11 @@
   <div class="page-wrap container">
     <%= form_for @user, :html => {:class => "col-md-offset-3 col-sm-offset-2 col-sm-5 col-md-6 form-horizontal center"} do |f| %>
         <h2 class="titles text-center">Registration</h2>
-
-        <div class="list-group-item-danger text-center">
-          <%if flash[:error] == "Email already used"%>
-            <h3>Email already used</h3> <!--Traducir-->
+          <%if flash[:error] == "Email already used" || flash[:error] == "Passwords don't match"%>
+            <div class="list-group-item-danger text-center">
+              <h3><%= flash[:error]%></h3> <!--Traducir-->
+            </div>
           <%end%>
-          <%if flash[:error] == "Passwords not"%>
-            <h3>Passwords don't match</h3> <!--Traducir-->
-          <%end%>
-        </div>
-      <!-- <h3><% @user.name %></h3> -->
-
       <div class="form-group">
         <%= f.label :name, "Name:", class: "control-label" %>
         <%= f.text_field :name, :required => true, placeholder:'Enter your name', class: "form-control" %>
